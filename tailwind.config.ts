@@ -7,10 +7,19 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      white: "#ffffff",
+      black: "#000000",
+      coral: "#FF6F61", //Buttons, Headers, Highlights
+      yellow: "#FFD54F", //Accents, Secondary Buttons
+      green: "#81C784", //Links, Progress Bars
+      beige: "#FFE0B2", //Cards, Containers
+      softWhite: "#F9F9F9", //Background
+      gray: "#424242", //Text
+    },
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        poorStory: ['"Comic Sans MS"', "cursive", "sans-serif"], // Add poor story font here
       },
     },
   },
