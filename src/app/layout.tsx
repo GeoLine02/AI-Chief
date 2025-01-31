@@ -15,10 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-poorStory antialiased`}>
+      <body className={`font-poorStory antialiased max-h-screen h-full`}>
         <Header />
-
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );
