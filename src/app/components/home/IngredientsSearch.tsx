@@ -14,7 +14,8 @@ const IngredientsSearch = () => {
   const [searchIngredients, setSearchIngredients] = useState<string>("");
 
   return (
-    <div className="flex flex-col max-h-full h-full max-w-72 md:max-w-2xl mx-auto">
+    <div className="max-w-72 max-h-screen md:max-w-3xl mx-auto p-4 space-y-4 flex flex-col items-center">
+      {/* Search Input */}
       <Input
         hasInnerShadow={true}
         name="ingredients"
@@ -25,14 +26,16 @@ const IngredientsSearch = () => {
         value={searchIngredients}
         iconSize={25}
         placeholder="Search ingredients"
-        className="py-2 px-4 xs:max-w-[320px] mb-8"
+        className="py-2 px-4 xs:max-w-[320px]"
       />
+
       <IngredientsList ingredientsList={ingredientsList} />
+
       <Button
         rounded="full"
         color="yellow"
         title="Generate Recipe"
-        className="py-3 mt-8"
+        className="py-3 w-full md:w-fit md:px-24"
       />
     </div>
   );

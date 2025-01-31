@@ -1,13 +1,13 @@
 import { IngredientType } from "@/types/ingredients";
 import IngredientCard from "./IngredientCard";
 
-type IngredeintsListPropsType = {
+type IngredientsListPropsType = {
   ingredientsList: IngredientType[];
 };
 
-const IngredientsList = ({ ingredientsList }: IngredeintsListPropsType) => {
+const IngredientsList = ({ ingredientsList }: IngredientsListPropsType) => {
   return (
-    <div className="flex gap-3 flex-wrap overflow-y-auto max-h-[500px]">
+    <div className="flex flex-wrap gap-3 overflow-y-auto max-h-[260px]">
       {ingredientsList.map((ingredient: IngredientType) => (
         <IngredientCard
           key={ingredient.name}

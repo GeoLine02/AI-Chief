@@ -11,7 +11,7 @@ const IngredientCard = ({
 }: IngredeintCardPropsType) => {
   return (
     <div
-      className="min-w-[50px] max-w-[50px] max-h-[50px] aspect-square border border-yellow flex flex-col items-center justify-center gap-2 rounded-[8px] relative bg-white shadow-black shadow-md cursor-pointer"
+      className="min-w-[50px] max-w-[50px] max-h-[50px] aspect-square border border-yellow flex flex-col items-center justify-center gap-2 rounded-[8px] relative bg-white shadow-black shadow-md cursor-pointer md:max-w-40 md:flex-row md:w-full"
       title={ingredientName}
     >
       {/* <Image
