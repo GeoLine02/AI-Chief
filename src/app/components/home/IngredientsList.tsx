@@ -7,7 +7,7 @@ type IngredientsListPropsType = {
 
 const IngredientsList = ({ ingredientsList }: IngredientsListPropsType) => {
   return (
-    <div className="flex flex-wrap gap-3 overflow-y-auto max-h-[260px]">
+    <div className="flex justify-center flex-wrap gap-3 overflow-y-auto max-h-[400px] lg:max-h-[600px]">
       {ingredientsList.map((ingredient: IngredientType) => (
         <IngredientCard
           key={ingredient.name}
