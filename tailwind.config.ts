@@ -16,10 +16,17 @@ export default {
       beige: "#FFE0B2", //Cards, Containers
       softWhite: "#F9F9F9", //Background
       gray: "#424242", //Text
+      transparent: "transparent",
     },
     extend: {
+      fontSize: {
+        vsm: "10px",
+      },
       fontFamily: {
         poorStory: ['"Comic Sans MS"', "cursive", "sans-serif"], // Add poor story font here
+      },
+      screens: {
+        xs: "440px",
       },
     },
   },
