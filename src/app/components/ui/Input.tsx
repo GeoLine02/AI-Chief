@@ -1,6 +1,7 @@
 "use client";
 
 import classNames from "classnames";
+import { ChangeEvent } from "react";
 
 type InputPropsType = {
   Icon?: React.ElementType;
@@ -8,7 +9,7 @@ type InputPropsType = {
   iconSize?: number;
   name: string;
   label?: string;
-  value: string | { [key: string]: unknown };
+  value: string | boolean | { [key: string]: unknown };
   hasInnerShadow?: boolean;
   hasOuterShaddow?: boolean;
   type:
@@ -21,11 +22,8 @@ type InputPropsType = {
     | "radio"
     | "checkbox";
   roundPecentage: "[8px]" | "full";
-  setValue: React.Dispatch<
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    React.SetStateAction<string | any>
-  >;
   className?: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 const Input = ({
@@ -37,24 +35,11 @@ const Input = ({
   label,
   roundPecentage,
   value,
-  setValue,
   hasInnerShadow = false,
   hasOuterShaddow = false,
+  onChange,
   className,
 }: InputPropsType) => {
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (typeof value === "object" && value !== null) {
-      setValue((prevValues: object) => ({
-        ...(typeof prevValues === "object" && prevValues !== null
-          ? prevValues
-          : {}),
-        [e.target.name]: e.target.value,
-      }));
-    } else {
-      setValue(e.target.value);
-    }
-  };
-
   const inputClass = classNames({
     "rounded-[8px]": roundPecentage === "[8px]",
     "rounded-full": roundPecentage === "full",
@@ -66,14 +51,22 @@ const Input = ({
     <div
       className={`flex items-center gap-2 border bg-beige border-yellow shadow-gray ${className} ${inputClass}`}
     >
-      {label && <label>{label}</label>}
+      {label && <label htmlFor={name}>{label}</label>}
       <input
+        id={name}
         onChange={onChange}
         className="w-full outline-none border-none bg-transparent"
         type={type}
         placeholder={placeholder}
         name={name}
-        value={typeof value === "string" ? value : ""}
+        value={
+          type !== "checkbox"
+            ? typeof value === "string"
+              ? value
+              : ""
+            : undefined
+        }
+        checked={type === "checkbox" ? Boolean(value) : undefined}
       />
       {Icon && <Icon size={iconSize} />}
     </div>

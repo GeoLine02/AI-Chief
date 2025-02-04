@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/app/components/layout/Header";
+import RecipesContextProvider from "@/context/RecipesContext";
 
 export const metadata: Metadata = {
   title: "AI Chef",
@@ -14,11 +15,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`font-poorStory antialiased h-screen`}>
-        <Header />
-        {children}
-      </body>
-    </html>
+    <RecipesContextProvider>
+      <html lang="en">
+        <body className={`font-poorStory antialiased h-screen`}>
+          <Header />
+          {children}
+        </body>
+      </html>
+    </RecipesContextProvider>
   );
 }
